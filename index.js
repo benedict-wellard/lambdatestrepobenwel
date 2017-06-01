@@ -12,19 +12,20 @@ exports.handler = (event, context, callback) => {
     console.log("3");
     var table = "Movies";
     console.log("4");
-    var year = 2015;
+    var year = "2015";
     var title = "The Big New Movie";
 
     var params = {
         TableName:table,
         Item:{
-            "year": year,
-            "title": title,
-            "info":{
-                "plot": "Nothing happens at all.",
-                "rating": 0
+            "year": 
+                {"S" : year},
+            "title":
+                {"S" : title},
+            "info":
+                {"S" : "Nothing happens at all."}
             }
-        }
+        
     };
     console.log("5");
     dynamodb.putItem(params, function(err, data) {
