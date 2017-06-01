@@ -7,7 +7,7 @@ exports.handler = (event, context, callback) => {
     region: "eu-west-1"
     });
     console.log("2");
-    var docClient = new AWS.DynamoDB.DocumentClient();
+    var dynamodb = new AWS.DynamoDB();
     console.log("3");
     var table = "Movies";
     console.log("4");
@@ -26,7 +26,7 @@ exports.handler = (event, context, callback) => {
         }
     };
     console.log("5");
-    docClient.putItem(params, function(err, data) {
+    dynamodb.putItem(params, function(err, data) {
         if (err) {
             console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
         } else {
