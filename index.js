@@ -9,16 +9,16 @@ exports.handler = (event, context, callback) => {
     });
 
     var dynamodb = new AWS.DynamoDB();
-    var table = "Movies";
+    var table = "UserInfo";
     var year = "2015";
     var title = "The Big New Movie";
-    var user = event.body.userID;
+    var userID = event.body.userID;
     var goal = event.body.goal;
 
     var params = {
         TableName:table,
         Item:{
-            "user": 
+            "userID": 
                 {"S" : userID},
             "goal":
                 {"S" : goal}
